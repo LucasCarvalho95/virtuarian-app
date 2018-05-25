@@ -35,9 +35,7 @@
   }
 
   getAllMotors(): Motor[] {
-    sadasreturn this.motors;
-
-
+    return this.motors;
   }
 
   getMotorById(id: number): Motor {
