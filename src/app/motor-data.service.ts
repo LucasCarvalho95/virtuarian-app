@@ -1,5 +1,6 @@
   import {Injectable} from '@angular/core';
   import {Motor} from './motor';
+  import { HttpClient } from '@angular/common/http';
 
   @Injectable()
   export class MotorDataService {
@@ -8,7 +9,7 @@
 
   motors: Motor[] = [];
 
-  constructor() {
+  constructor(private httpClient : HttpClient) {
   }
 
   addMotor(motor: Motor): MotorDataService {
@@ -44,4 +45,4 @@
       .pop();
   }
 
-  }
+}
