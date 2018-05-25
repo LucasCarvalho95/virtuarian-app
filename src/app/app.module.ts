@@ -4,6 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule  } from '@angular/forms';
 import { HttpClientModule  } from '@angular/common/http';
+import { 
+  MatFormFieldModule, 
+  MatInputModule, 
+  MatOptionModule, 
+  MatSelectModule,
+  MatButtonModule
+} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -12,9 +22,19 @@ import { HttpClientModule  } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule, 
+    MatOptionModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor() {
+    debugger;
+  }
+}

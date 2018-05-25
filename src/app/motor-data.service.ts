@@ -26,13 +26,13 @@
     return this;
   }
 
-  updateMotorById(id: number, values: Object = {}): Motor {
-    let motor = this.getMotorById(id);
+  updateMotorById(motor: Motor): Motor {
+    let savedData = this.getMotorById(motor.id);
     if (!Motor) {
       return null;
     }
-    Object.assign(motor, values);
-    return motor;
+    Object.assign(savedData, motor);
+    return savedData;
   }
 
   getAllMotors(): Motor[] {
