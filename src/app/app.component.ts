@@ -21,7 +21,6 @@ export class AppComponent {
   dutyClassOptions = ["S1","S2","S3","S4","S5"];
 
   constructor(private motorDataService: MotorDataService) {
-    debugger;
   }
 
   saveMotor(motor) {

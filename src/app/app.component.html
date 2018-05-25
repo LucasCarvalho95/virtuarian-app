@@ -3,32 +3,8 @@
     <h1>Motors</h1>
     <div class="motor-data-container">
       <mat-form-field>
-        <mat-select placeholder="Number of poles">
-            <mat-select [(value)]="nPoles">
-          <mat-option value="option1">2</mat-option>
-          <mat-option value="option1">4</mat-option>
-          <mat-option value="option1">6</mat-option>
-          <mat-option value="option1">8</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-select placeholder="Voltage">
-            <mat-select [(value)]="volt">
-          <mat-option value="option1">220</mat-option>
-          <mat-option value="option1">380</mat-option>
-          <mat-option value="option1">440</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-select placeholder="Duty Class">
-            <mat-select [(value)]="duty">
-          <mat-option value="option1">S1</mat-option>
-          <mat-option value="option1">S2</mat-option>
-          <mat-option value="option1">S3</mat-option>
-          <mat-option value="option1">S4</mat-option>
-          <mat-option value="option1">S5</mat-option>
+        <mat-select [(value)]="nPoles">
+          <mat-option *ngFor="let option of numberPolesOptions" [value]="option">{{option}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -46,7 +22,7 @@
 
       <button class="confirm" mat-raised-button color="accent" (click)="saveData(motor)">Save</button>
 
-      <button mat-raised-button color="primary" (click)="">Cancel</button>
+      <button mat-raised-button color="primary" >Cancel</button>
     </div>
   </header>
   <section class="main" *ngIf="motors.length > 0">
