@@ -23,7 +23,7 @@ export class AppComponent {
   constructor(private motorDataService: MotorDataService) {
   }
 
-  saveMotor(motor) {
+  saveMotor(motor: Motor) {
     if(motor.id) {
       this.motorDataService.updateMotorById(motor.id, motor);
     }
