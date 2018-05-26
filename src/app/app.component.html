@@ -4,7 +4,22 @@
     <div class="motor-data-container">
       <mat-form-field>
         <mat-select [(value)]="nPoles">
+            <mat-option>None</mat-option>
           <mat-option *ngFor="let option of numberPolesOptions" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+            <mat-select [(value)]="volt">
+                <mat-option>None</mat-option>
+              <mat-option *ngFor="let option of voltageOptions" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+            <mat-select [(value)]="duty">
+                <mat-option>None</mat-option>
+              <mat-option *ngFor="let option of dutyClassOptions" [value]="option">{{option}}</mat-option>
         </mat-select>
       </mat-form-field>
 
