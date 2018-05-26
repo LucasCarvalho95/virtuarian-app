@@ -25,7 +25,10 @@ export class AppComponent {
 
   saveMotor(motor) {
     if(motor.id) {
-     
+      this.motorDataService.updateMotorById(motor.id, motor);
+    }
+    else {
+      this.motorDataService.addMotor(motor);
     }
   }
 
