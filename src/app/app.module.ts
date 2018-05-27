@@ -10,8 +10,7 @@ import {
   MatOptionModule, 
   MatSelectModule,
   MatButtonModule,
-  MatExpansionModule
-} from '@angular/material';
+  MatExpansionModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { InputFormComponent } from './input-form/input-form.component';
 
