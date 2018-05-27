@@ -1,0 +1,18 @@
+<section class="motorapp">
+  <header class="header">
+    <h1>Motors</h1>
+    <div class="motor-data-container">
+      <app-input-form [motor]="newMotor">
+      </app-input-form>
+    </div>
+  </header>
+  <section class="main" *ngIf="motors.length > 0">
+      <div class="motor-data-container" *ngFor="let motor of motors">
+          <app-input-form [motor]="motor">
+          </app-input-form>
+        </div>
+  </section>
+  <footer class="footer" *ngIf="motors.length > 0">
+    <span class="motor-count"><strong>{{motors.length}}</strong> {{motors.length == 1 ? 'motor' : 'motors'}} </span>
+  </footer>
+</section>

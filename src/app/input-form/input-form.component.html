@@ -1,0 +1,49 @@
+<mat-accordion>
+  <mat-expansion-panel class="expansion-panel-app" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ motor.id ? motor.id : "Register new motor"}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-select placeholder="Number of Poles" [(value)]="nPoles" [(ngModel)]="motor.numberPoles">
+        <mat-option></mat-option>
+        <mat-option *ngFor="let option of numberPolesOptions" [value]="option">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+          <mat-select placeholder="Voltage" [(value)]="volt" [(ngModel)]="motor.voltage">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let option of voltageOptions" [value]="option">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+          <mat-select placeholder="Duty Class" [(value)]="duty" [(ngModel)]="motor.dutyClass">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let option of dutyClassOptions" [value]="option">{{option}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Rated Current" type="number" [(ngModel)]="motor.ratedCurrent">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Rated Power" type="number" [(ngModel)]="motor.ratedPower">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Maximum Torque" type="number" [(ngModel)]="motor.maximumTorque">
+    </mat-form-field>
+  
+    <button mat-raised-button color="accent" data-toggle="collapse" (click)="saveMotor(motor)">Save</button>
+  
+    <button mat-raised-button color="primary" data-toggle="collapse" (click)="cancelMotorChange()">Cancel</button>  
+    
+    <button mat-raised-button color="warn" data-toggle="collapse" *ngIf="motor.id" (click)="removeMotor(motor)">Delete</button> 
+
+  </mat-expansion-panel>
+</mat-accordion>
