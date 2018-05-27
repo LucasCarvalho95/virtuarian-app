@@ -7,16 +7,12 @@
     </div>
   </header>
   <section class="main" *ngIf="motors.length > 0">
-    <ul class="motor-list">
-      <li *ngFor="let motor of motors">
-        <div class="view">
+      <div class="motor-data-container" *ngFor="let motor of motors">
           <app-input-form [motor]="motor">
           </app-input-form>
         </div>
-      </li>
-    </ul>
   </section>
   <footer class="footer" *ngIf="motors.length > 0">
-    <span class="motor-count"><strong>{{motors.length}}</strong> {{motors.length == 1 ? 'item' : 'items'}} left</span>
+    <span class="motor-count"><strong>{{motors.length}}</strong> {{motors.length == 1 ? 'motor' : 'motors'}} </span>
   </footer>
 </section>

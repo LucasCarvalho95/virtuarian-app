@@ -2,7 +2,9 @@
   import {Motor} from './motor';
   import { HttpClient } from '@angular/common/http';
 
-  @Injectable()
+  @Injectable({
+    providedIn: 'root',
+  })
   export class MotorDataService {
 
   lastId: number = 0;
@@ -13,7 +15,6 @@
   }
 
   addMotor(motor: Motor): MotorDataService {
-    debugger;
     if (!motor.id) {
       motor.id = ++this.lastId;
     }

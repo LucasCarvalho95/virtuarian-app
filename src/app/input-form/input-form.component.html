@@ -1,9 +1,9 @@
 <mat-accordion>
-  <mat-expansion-panel (opened)="panelOpenState = true"
+  <mat-expansion-panel class="expansion-panel-app" (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Register new motor
+        {{ motor.id ? motor.id : "Register new motor"}}
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-form-field>
@@ -41,7 +41,9 @@
   
     <button mat-raised-button color="accent" data-toggle="collapse" (click)="saveMotor(motor)">Save</button>
   
-    <button mat-raised-button color="primary" data-toggle="collapse" (click)="1">Cancel</button>            
+    <button mat-raised-button color="primary" data-toggle="collapse" (click)="cancelMotorChange()">Cancel</button>  
     
+    <button mat-raised-button color="warn" data-toggle="collapse" *ngIf="motor.id" (click)="removeMotor(motor)">Delete</button> 
+
   </mat-expansion-panel>
 </mat-accordion>

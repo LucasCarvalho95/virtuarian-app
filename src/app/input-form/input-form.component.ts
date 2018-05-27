@@ -1,12 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Injectable } from '@angular/core';
+
 import { Motor } from '../motor';
 import {MotorDataService } from '../motor-data.service';
 
 @Component({
   selector: 'app-input-form',
   templateUrl: './input-form.component.html',
-  styleUrls: ['./input-form.component.css'],
-  providers: [MotorDataService]
+  styleUrls: ['./input-form.component.css']
 })
 
 export class InputFormComponent implements OnInit {
@@ -26,17 +26,18 @@ export class InputFormComponent implements OnInit {
 
   ngOnInit() {
     if(this.motor.id) {
-      this.backupMotor = this.motor;
+      this.updateBackup(this.motor);
     }
+  }
 
+  updateBackup(motor: Motor) {
+    this.backupMotor = Object.assign({},motor);
   }
 
   saveMotor(motor: Motor) {
-    debugger;
-
     if(motor.id) {
       this.motorDataService.updateMotorById(motor.id, motor);
-      this.backupMotor = this.motor;
+      this.updateBackup(motor);
     }
     else {
       this.motorDataService.addMotor(Object.assign({}, motor));
@@ -44,9 +45,13 @@ export class InputFormComponent implements OnInit {
     }
   }
 
+  cancelMotorChange(){
+    this.clearForm();
+  }
+
   clearForm(){
     if (this.motor.id) {
-      this.motor = this.backupMotor;
+      this.motor = Object.assign({}, this.backupMotor);
     }
     else {
       this.motor = new Motor;
