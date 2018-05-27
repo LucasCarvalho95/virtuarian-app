@@ -9,46 +9,45 @@
                 <mat-panel-title>
                   Register new motor
                 </mat-panel-title>
-                <mat-panel-description>
-                </mat-panel-description>
               </mat-expansion-panel-header>
+              
               <mat-form-field>
-                  <mat-select placeholder="Number of Poles" [(value)]="nPoles">
+                  <mat-select placeholder="Number of Poles" [(value)]="nPoles" [(ngModel)]="newMotor.numberPoles">
                     <mat-option></mat-option>
                     <mat-option *ngFor="let option of numberPolesOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
                 </mat-form-field>
           
                 <mat-form-field>
-                      <mat-select placeholder="Voltage" [(value)]="volt">
+                      <mat-select placeholder="Voltage" [(value)]="volt" [(ngModel)]="newMotor.voltage">
                         <mat-option></mat-option>
                         <mat-option *ngFor="let option of voltageOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
                 </mat-form-field>
             
                 <mat-form-field>
-                      <mat-select placeholder="Duty Class" [(value)]="duty">
+                      <mat-select placeholder="Duty Class" [(value)]="duty" [(ngModel)]="newMotor.dutyClass">
                         <mat-option></mat-option>
                         <mat-option *ngFor="let option of dutyClassOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
                 </mat-form-field>
           
                 <mat-form-field>
-                  <input matInput placeholder="Rated Current">
+                  <input matInput placeholder="Rated Current" type="number" [(ngModel)]="newMotor.ratedCurrent">
                 </mat-form-field>
           
                 <mat-form-field>
-                  <input matInput placeholder="Rated Power">
+                  <input matInput placeholder="Rated Power" type="number" [(ngModel)]="newMotor.ratedPower">
                 </mat-form-field>
           
                 <mat-form-field>
-                  <input matInput placeholder="Maximum Torque">
+                  <input matInput placeholder="Maximum Torque" type="number" [(ngModel)]="newMotor.maximumTorque">
                 </mat-form-field>
 
-                <button class="confirm" mat-raised-button color="accent" (click)="saveData(motor)">Save</button>
+                <button mat-raised-button color="accent" (click)="saveMotor(newMotor)">Save</button>
 
-                <button mat-raised-button color="primary" >Cancel</button>
-
+                <button mat-raised-button color="primary" (click)="1">Cancel</button>
+                
             </mat-expansion-panel>
           </mat-accordion>
     </div>
@@ -57,7 +56,7 @@
     <ul class="motor-list">
       <li *ngFor="let motor of motors">
         <div class="view">
-          <label>{{motor.title}}</label>
+          <label>{{motor.numberPoles}} poles, {{motor.voltage}} V, {{motor.dutyClass}}, {{motor.ratedCurrent}} A, {{motor.ratedPower}} W, {{motor.maximumTorque}} maximum Torque [N.m]</label>
           <button class="destroy" (click)="removeMotor(motor)"></button>
         </div>
       </li>

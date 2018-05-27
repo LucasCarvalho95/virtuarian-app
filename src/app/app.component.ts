@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MotorDataService } from './motor-data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Motor} from './motor';
+import { throwMatDialogContentAlreadyAttachedError } from '@angular/material';
 
 
 @Component({
@@ -24,16 +25,18 @@ export class AppComponent {
   }
 
   saveMotor(motor: Motor) {
+    debugger;
+
     if(motor.id) {
       this.motorDataService.updateMotorById(motor.id, motor);
     }
     else {
-      this.motorDataService.addMotor(motor);
+      this.motorDataService.addMotor(Object.assign({}, motor));
+      this.clearForm();
     }
   }
 
-  addMotor() {
-    this.motorDataService.addMotor(this.newMotor);
+  clearForm(){
     this.newMotor = new Motor();
   }
 

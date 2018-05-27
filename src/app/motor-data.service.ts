@@ -13,6 +13,7 @@
   }
 
   addMotor(motor: Motor): MotorDataService {
+    debugger;
     if (!motor.id) {
       motor.id = ++this.lastId;
     }

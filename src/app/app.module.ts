@@ -13,12 +13,14 @@ import {
   MatExpansionModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { InputFormComponent } from './input-form/input-form.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InputFormComponent
   ],
   imports: [
     BrowserModule,
