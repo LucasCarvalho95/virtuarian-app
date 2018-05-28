@@ -1,27 +1,29 @@
 <mat-accordion>
-  <mat-expansion-panel class="expansion-panel-app" (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
+  <mat-expansion-panel class="expansion-panel-app">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{ motor.id ? motor.id : "Register new motor"}}
+        {{ motor.id ? "Motor #" + motor.id : "Register new motor"}}
       </mat-panel-title>
+      <mat-panel-description *ngIf="motor.id">
+        {{motor.numberPoles}}-pole,  {{motor.voltage}} V, {{motor.dutyClass}} Duty Cycle, {{motor.ratedCurrent}} A, {{motor.ratedPower}} kW, {{motor.maxTorque}} N.m of maximum torque
+      </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-form-field>
-      <mat-select placeholder="Number of Poles" [(value)]="nPoles" [(ngModel)]="motor.numberPoles">
+      <mat-select placeholder="Number of Poles" [(ngModel)]="motor.numberPoles">
         <mat-option></mat-option>
         <mat-option *ngFor="let option of numberPolesOptions" [value]="option">{{option}}</mat-option>
       </mat-select>
     </mat-form-field>
   
     <mat-form-field>
-          <mat-select placeholder="Voltage" [(value)]="volt" [(ngModel)]="motor.voltage">
+          <mat-select placeholder="Voltage" [(ngModel)]="motor.voltage">
             <mat-option></mat-option>
             <mat-option *ngFor="let option of voltageOptions" [value]="option">{{option}}</mat-option>
       </mat-select>
     </mat-form-field>
   
     <mat-form-field>
-          <mat-select placeholder="Duty Class" [(value)]="duty" [(ngModel)]="motor.dutyClass">
+          <mat-select placeholder="Duty Class" [(ngModel)]="motor.dutyClass">
             <mat-option></mat-option>
             <mat-option *ngFor="let option of dutyClassOptions" [value]="option">{{option}}</mat-option>
       </mat-select>
@@ -36,14 +38,16 @@
     </mat-form-field>
   
     <mat-form-field>
-      <input matInput placeholder="Maximum Torque" type="number" [(ngModel)]="motor.maximumTorque">
+      <input matInput placeholder="Maximum Torque" type="number" [(ngModel)]="motor.maxTorque">
     </mat-form-field>
+
+    <div class="buttons">
+    <button mat-raised-button color="primary" data-toggle="collapse" (click)="saveMotor(motor)">Save</button>
   
-    <button mat-raised-button color="accent" data-toggle="collapse" (click)="saveMotor(motor)">Save</button>
-  
-    <button mat-raised-button color="primary" data-toggle="collapse" (click)="cancelMotorChange()">Cancel</button>  
+    <button mat-raised-button color="basic" data-toggle="collapse" (click)="cancelMotorChange()">Cancel</button>  
     
     <button mat-raised-button color="warn" data-toggle="collapse" *ngIf="motor.id" (click)="removeMotor(motor)">Delete</button> 
+    </div>
 
   </mat-expansion-panel>
 </mat-accordion>

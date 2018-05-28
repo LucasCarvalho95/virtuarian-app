@@ -1,0 +1,13 @@
+footer {
+    text-align: right;
+}
+
+footer span {
+    margin-right: 21px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+header h1 {
+    text-align: center;
+}

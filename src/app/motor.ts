@@ -3,8 +3,8 @@ export class Motor {
 	numberPoles: number;
 	voltage: number;
 	dutyClass: string;
-	rtdCurrent: number;
-	rtdPower: number;
+	ratedCurrent: number;
+	ratedPower: number;
 	maxTorque: number;
 
 	contructor(values: Object = {}) {
