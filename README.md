@@ -22,6 +22,13 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+##  -- RUN 'npm install' TO INSTALL DEPENDENCIES --  
+
+## Description
+
+The application is based on two components: the main app.component which contains the header, footer and two data containers - for registering a new motor and listing/editing the existing ones - and the input-form.component that defines the basic input operations within the data containers.
+
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
